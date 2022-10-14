@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <meta charset="utf-8"> 
+   <title>表单填写</title>
+   <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">  
+   <style type="text/css">
+	   html,body{
+		height:100%;
+		}
+	   .checkbox{
+		float:left;
+		width:40%;
+		}
+		input[type="checkbox"]{
+		width:30px;
+		height:30px;
+		}
+		input[type="radio"]{
+		width:30px;
+		height:30px;
+		}
+		label{
+		font-size:30px;
+		color:blue;
+		}
+		.checkbox+.checkbox, .radio+.radio {
+			margin-top: 10px;
+		}
+		.checkbox2{
+		width:90%;
+		}
+   </style>
+   <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+   <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="content-wrapper" style="width:calc(100% - 20px);margin-right:10px">
+	<section class="content">
+		<div class="row" style="margin-right:20px;margin-left:20px;">
+			<div class="col-md-12">
+				<h1 class="box-title">线路跳闸汇报模板</h3>
+			</div>
+		</div>
+		<div class="row" style="margin-right:20px;margin-left:20px;">
+			<div class="col-md-12">
+				<div class="box box-success">
+					<div class="box-header with-border">
+						<h2 class="box-title">1、跳闸时间</h3>
+					</div>
+					<div class="box-body">
+						<input id="inputTripTime" class="form-control input-lg" type="text" placeholder="例如：2022年09月20日 12点22分">
+					</div>
+				</div>
+				<div class="box box-success">
+					<div class="box-header with-border">
+						<h2 class="box-title">2、变电站</h3>
+					</div>
+					<div class="box-body">
+						<input id="inputStation" class="form-control input-lg" type="text" placeholder="输入变电站名称">
+					</div>
+				</div>
+				<div class="box box-success">
+					<div class="box-header with-border">
+						<h2 class="box-title">3、线路名称</h3>
+					</div>
+					<div class="box-body">
+						<input id="inputLine" class="form-control input-lg" type="text" placeholder="输入线路名称">
+					</div>
+				</div>
+				<div class="box box-success">
+					<div class="box-header with-border">
+						<h2 class="box-title">4、故障相别（多选）</h3>
+					</div>
+					<div class="box-body">
+						<div class="checkbox">
+							<label>
+								<input id="inputFaultA" type="checkbox">
+								&nbsp&nbsp&nbsp&nbsp&nbspA相
+							</label>
+						</div>
+						<div class="checkbox">
+							<label>
+								<input id="inputFaultB" type="checkbox">
+								&nbsp&nbsp&nbsp&nbsp&nbspB相
+							</label>
+						</div>
+						<div class="checkbox">
+							<label>
+								<input id="inputFaultC" type="checkbox">
+								&nbsp&nbsp&nbsp&nbsp&nbspC相
+							</label>
+						</div>
+						<div class="checkbox">
+							<label>
+								<input id="inputFaultAB" type="checkbox">
+								&nbsp&nbsp&nbsp&nbsp&nbspAB相
+							</label>
+						</div>
+						<div class="checkbox">
+							<label>
+								<input id="inputFaultBC" type="checkbox">
+								&nbsp&nbsp&nbsp&nbsp&nbspBC相
+							</label>
+						</div>
+						<div class="checkbox">
+							<label>
+								<input id="inputFaultAC" type="checkbox">
+								&nbsp&nbsp&nbsp&nbsp&nbspAC相
+							</label>
+						</div>
+						<div class="checkbox">
+							<label>
+								<input id="inputFaultABC" type="checkbox">
+								&nbsp&nbsp&nbsp&nbsp&nbspABC相
+							</label>
+						</div>
+					</div>
+				</div>
+				<div style="clear:both"></div>
+				<div class="box box-success">
+					<div class="box-header with-border">
+						<h2 class="box-title">5、保护动作（多选）</h3>
+					</div>
+					<div class="box-body">
+						<div class="checkbox checkbox2">
+							<label>
+								<input id="cbDifferProtection" type="checkbox">
+								&nbsp&nbsp&nbsp&nbsp&nbsp差动保护动作
+							</label>
+						</div>
+						<div class="checkbox checkbox2">
+							<label>
+								<input id="cbDistance1" type="checkbox">
+								&nbsp&nbsp&nbsp&nbsp&nbsp距离I段保护动作
+							</label>
+						</div>
+						<div class="checkbox checkbox2">
+							<label>
+								<input id="cbDistance2" type="checkbox">
+								&nbsp&nbsp&nbsp&nbsp&nbsp距离II段保护动作
+							</label>
+						</div>
+						<div class="checkbox checkbox2">
+							<label>
+								<input id="cbZero" type="checkbox">
+								&nbsp&nbsp&nbsp&nbsp&nbsp零序I段保护动作
+							</label>
+						</div>
+						<div class="checkbox checkbox2" style="width:20%;float:left">
+							<label>
+								<input id="cbOther" type="checkbox">
+								&nbsp&nbsp&nbsp&nbsp&nbsp其他
+							</label>
+						</div>
+						<input id="inputProtectionOther" class="form-control input-lg" type="text" placeholder="输入其他保护动作" style="width:80%;float:left;margin-top: 10px;">
+					</div>
+				</div>
+				<div style="clear:both"></div>
+				<div class="box box-success">
+					<div class="box-header with-border">
+						<h2 class="box-title">6、重合闸是否动作</h3>
+					</div>
+					<div class="box-body">
+						<div class="radio">
+							<label>
+								<input type="radio" name="optionsReclose" id="optionsReclose1" value="0" checked="">
+								&nbsp&nbsp&nbsp&nbsp&nbsp无重合闸
+							</label>
+						</div>
+						<div class="radio">
+							<label>
+								<input type="radio" name="optionsReclose" id="optionsReclose2" value="1" >
+								&nbsp&nbsp&nbsp&nbsp&nbsp有重合闸未动作
+							</label>
+						</div>
+						<div class="radio">
+							<label>
+								<input type="radio" name="optionsReclose" id="optionsReclose3" value="2" >
+								&nbsp&nbsp&nbsp&nbsp&nbsp重合成功
+							</label>
+						</div>
+						<div class="radio">
+							<label>
+								<input type="radio" name="optionsReclose" id="optionsReclose4" value="3" >
+								&nbsp&nbsp&nbsp&nbsp&nbsp重合不成功
+							</label>
+						</div>
+					</div>
+				</div>				
+				<div class="box box-success">
+					<div class="box-header with-border">
+						<h2 class="box-title">7、故障电流（一次电流）</h3>
+					</div>
+					<div class="box-body">
+						<input id="inputFaultCurrent" class="form-control input-lg" type="text" placeholder="输入故障电流">
+					</div>
+				</div>				
+				<div class="box box-success">
+					<div class="box-header with-border">
+						<h2 class="box-title">8、故障测距</h3>
+					</div>
+					<div class="box-body">
+						<input id="inputFaultLocator" class="form-control input-lg" type="text" placeholder="输入故障测距">
+					</div>
+				</div>
+				<div class="box box-success">
+					<div class="box-header with-border">
+						<h2 class="box-title">9、现场检查情况</h3>
+					</div>
+					<div class="box-body">
+						<div class="radio">
+							<label>
+								<input type="radio" name="optionsInspection" id="optionsInspection1" value="0" checked="">
+								&nbsp&nbsp&nbsp&nbsp&nbsp现场检查一二次设备正常
+							</label>
+						</div>
+					</div>
+				</div>	
+				<div class="box box-success">
+					<div class="box-header with-border">
+						<h2 class="box-title">10、接_____号主变运行</h3>
+					</div>
+					<div class="box-body">
+						<div class="radio">
+							<label>
+								<input type="radio" name="optionsTrans" id="optionsTrans1" value="0" checked="">
+								&nbsp&nbsp&nbsp&nbsp&nbsp1
+							</label>
+						</div>
+						<div class="radio">
+							<label>
+								<input type="radio" name="optionsTrans" id="optionsTrans2" value="0" >
+								&nbsp&nbsp&nbsp&nbsp&nbsp2
+							</label>
+						</div>
+						<div class="radio">
+							<label>
+								<input type="radio" name="optionsTrans" id="optionsTrans3" value="0" >
+								&nbsp&nbsp&nbsp&nbsp&nbsp3
+							</label>
+						</div>
+					</div>
+				</div>	
+				<div class="box-body">
+					<button id="btnGen" class="btn btn-primary" style="font-size: 30px;margin-bottom:10px;margin-right:20px;float:left">生成模板文字</button>
+					<button id="btnCopy" class="btn btn-primary" style="font-size: 30px;margin-bottom:10px;float:left">复制到粘贴板</button>
+				</div>		
+				<div style="clear:both"></div>
+				<div id="divContent" class="box-body" style="font-size: 25px;height:500px; border:2px solid #eee;margin-bottom:10px;">
+				</div>	
+			</div>          
+		</div>
+    </section>
+</div>
+</body>
+
+<script >
+	document.getElementsByTagName('body')[0].style.zoom=1.5;
+
+	var btnGen=document.getElementById('btnGen');
+	btnGen.onclick=function(){
+		var divContent=document.getElementById('divContent');
+		var content='';
+		content+=document.getElementById('inputTripTime').value+'，';
+		content+=document.getElementById('inputStation').value;
+		content+=document.getElementById('inputLine').value;
+		
+		var strList=[];
+		if(document.getElementById('inputFaultA').checked){
+			strList.push('A相故障');
+		}
+		if(document.getElementById('inputFaultB').checked){
+			strList.push('B相故障');
+		}
+		if(document.getElementById('inputFaultC').checked){
+			strList.push('C相故障');
+		}
+		if(document.getElementById('inputFaultAB').checked){
+			strList.push('AB相故障');
+		}
+		if(document.getElementById('inputFaultBC').checked){
+			strList.push('BC相故障');
+		}
+		if(document.getElementById('inputFaultAC').checked){
+			strList.push('AC相故障');
+		}
+		if(document.getElementById('inputFaultABC').checked){
+			strList.push('ABC相故障');
+		}
+		for(var i=0;i<strList.length;i++){
+			content+=strList[i];
+			if(i<strList.length-1){
+				content+='、';
+			}
+		}
+		content+='，';
+		
+		strList=[];
+		if(document.getElementById('cbDifferProtection').checked){
+			strList.push('差动保护动作');
+		}
+		if(document.getElementById('cbDistance1').checked){
+			strList.push('距离I段保护动');
+		}
+		if(document.getElementById('cbDistance2').checked){
+			strList.push('距离II段保护动作');
+		}
+		if(document.getElementById('cbZero').checked){
+			strList.push('零序I段保护动作');
+		}
+		if(document.getElementById('cbOther').checked){
+			strList.push(document.getElementById('inputProtectionOther').value);
+		}
+		for(var i=0;i<strList.length;i++){
+			content+=strList[i];
+			if(i<strList.length-1){
+				content+='、';
+			}
+		}
+		content+='，';
+		
+		var radios = document.getElementsByName("optionsReclose");
+        var radioValue = 0;
+        for(var i=0;i<radios.length;i++){
+            if(radios[i].checked == true){
+                radioValue = parseInt(radios[i].value);
+				break;
+            }
+        }
+		switch(radioValue){
+		case 0:{
+			content+='无重合闸';
+			break;
+		}
+		case 1:{
+			content+='有重合闸未动作';
+			break;
+		}
+		case 2:{
+			content+='重合成功';
+			break;
+		}
+		case 3:{
+			content+='重合不成功';
+			break;
+		}
+		}
+		
+		content+='，';
+		
+		content+='故障电流'+document.getElementById('inputFaultCurrent').value;
+		
+		content+='，';
+		
+		content+='测距'+document.getElementById('inputFaultLocator').value;
+		
+		content+='，';
+		
+		radios = document.getElementsByName("optionsInspection");
+        radioValue = 0;
+        for(var i=0;i<radios.length;i++){
+            if(radios[i].checked == true){
+                radioValue = parseInt(radios[i].value);
+				break;
+            }
+        }
+		switch(radioValue){
+		case 0:{
+			content+='现场检查一二次设备正常';
+			break;
+		}
+		}
+		
+		content+='，';
+		
+		radios = document.getElementsByName("optionsTrans");
+        radioValue = 0;
+        for(var i=0;i<radios.length;i++){
+            if(radios[i].checked == true){
+                radioValue = parseInt(radios[i].value);
+				break;
+            }
+        }
+		switch(radioValue){
+		case 0:{
+			content+='接1号主变';
+			break;
+		}
+		case 1:{
+			content+='接2号主变';
+			break;
+		}
+		case 2:{
+			content+='接3号主变';
+			break;
+		}
+		}
+		
+		content+='。';
+		
+		
+		divContent.innerText=content;
+	}
+	var btnCopy=document.getElementById('btnCopy');
+	btnCopy.onclick=function(){
+		var divContent=document.getElementById('divContent');
+		
+		const input = document.createElement('input');
+		input.setAttribute('readonly', 'readonly'); // 设置为只读, 防止在 ios 下拉起键盘
+		input.value = divContent.innerText;
+		document.body.appendChild(input);
+		input.setSelectionRange(0, 9999); // 防止 ios 下没有全选内容而无法复制
+		input.select();
+		document.execCommand('copy');
+		document.body.removeChild(input);
+		/*
+		if (document.body.createTextRange) {
+            var range = document.body.createTextRange();
+			range.moveToElementText(divContent);
+			range.select();
+        } else if (window.getSelection) {
+            var selection = window.getSelection();
+            var range = document.createRange();
+            range.selectNodeContents(divContent);
+            selection.removeAllRanges();
+            selection.addRange(range);
+        } 
+		*/
+	}
+</script>
+</html>
